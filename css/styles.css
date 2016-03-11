@@ -1,0 +1,51 @@
+.menu {
+	float: right;
+	margin-right: 50px;
+}
+.cats {
+	list-style: none;
+}
+li {
+	margin: 5px;
+	font-size: 20px;
+}
+#displayWrapper,
+#adminArea {
+	margin-left: 100px;
+}
+#displayCats {
+	text-align: center;
+}
+#displayCatImage {
+	width: 400px;
+	height: 400px;
+}
+#admin-form,
+.field
+{
+	margin-top: 20px;
+}
+
+button {
+	background-color: lightgreen;
+	width: 150px;
+	height: 30px;
+	border-radius: 5px;
+	border: none;
+	color: white;
+	font-size: 18px;
+	margin: 10px;
+}
+#cancel {
+	background-color: red;
+}
+.field{
+	width: 30%;
+}
+label {
+	width: 30%;
+}
+input {
+	width: 70%;
+	float: right;
+}

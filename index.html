@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cat Clicker</title>
+</head>
+<body>
+	<div id="firstCat" style="float: left;">
+		<p id="catName1"></p>
+		<p id="count1"></p>
+		<img id="cat1" src="images/cat.jpeg" style="width: 300px;height: 300px; margin: 10px">
+	</div>
+	<div id="SecondCat" style="float: left;">
+		<p id="catName2"></p><p id="count2"></p>
+		<img id="cat2" src="images/cat2.jpg" style="width: 300px;height: 300px; margin:	10px">
+	</div>
+	<script>
+		function cat(name) {
+			this.name = name;
+			this.counter = 0;
+			this.displayCounter = function(counterElem) {
+				counterElem.innerHTML = this.counter;
+			};
+			this.displayName = function(nameElem){
+				nameElem.innerHTML = this.name;
+			}
+
+		}
+
+
+		var name1 = document.getElementById("catName1"), name2 = document.getElementById("catName2");
+		var catCounter1 = document.getElementById("count1"), catCounter2 = document.getElementById("count2");
+		var image1 = document.getElementById("cat1"), image2 = document.getElementById("cat2");
+
+		var cat1 = new cat("Fluffy Cat");
+		cat1.displayCounter(catCounter1);
+		cat1.displayName(name1);
+
+		image1.addEventListener("click", function(){
+			cat1.counter++;
+			cat1.displayCounter(catCounter1);
+		});
+
+		var cat2 = new cat("Fuzzy Cat");
+		cat2.displayCounter(catCounter2);
+		cat2.displayName(name2);
+
+		image2.addEventListener("click", function(){
+			cat2.counter++;
+			cat2.displayCounter(catCounter2);
+		});
+
+		// function loadCats(){
+		// 	var name1 = document.getElementById("catName1");
+		// 	var catCounter1 = document.getElementById("count1");
+		// 	var image1 = document.getElementById("cat1");
+
+		// 	cat1.displayCounter(catCounter1);
+		// 	cat1.displayName(name1);
+
+		// 	image1.addEventListener("click", function(){
+		// 		cat1.counter++;
+		// 		cat1.displayCounter(catCounter1);
+		// 	});
+		// }
+
+
+	</script>
+</body>
+</html>
