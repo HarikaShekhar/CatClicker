@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cat Clicker Premium</title>
+	<style>
+	.menu {float: left;}
+	.cats {list-style: none;}
+	li {margin: 5px;font-size: 20px;}
+	#displayWrapper {margin-left: 200px;}
+	#displayCats {text-align: center;}
+	</style>
+</head>
+<body>
+<div class="menu">
+	<h2>My Crazy Cats</h2>
+	<ul class="cats">
+		<li>Mocha</li>
+		<li>Latte</li>
+		<li>Limca</li>
+		<li>Pepsi</li>
+		<li>Chai</li>
+	</ul>
+</div>
+<div id="displayWrapper">
+	<h2 id="displayCats">Click a cat name and view the details here!</h2>
+	<div id="displayArea"></div>
+</div>
+
+
+<script type="text/javascript">
+ 	var cats = {
+ 		"Mocha": {
+ 			"image": "images/cat1.jpg",
+ 			"counter": "0"
+ 		},
+ 		"Latte": {
+ 			"image": "images/cat2.jpg",
+ 			"counter": "0"
+ 		},
+ 		"Limca": {
+ 			"image": "images/cat3.jpg",
+ 			"counter": "0"
+ 		},
+ 		"Pepsi": {
+ 			"image": "images/cat4.jpg",
+ 			"counter": "0"
+ 		},
+ 		"Chai": {
+ 			"image": "images/cat5.jpg",
+ 			"counter": "0"
+ 		}
+ 	}
+
+
+	var catList = document.getElementsByTagName('li');
+	var displayArea= document.getElementById('displayArea');
+
+	for (var i = 0; i < catList.length; i++) {
+		var catListItem = catList[i];
+		var catName = catListItem.innerHTML;
+		var catCounter = cats[catName].counter;
+		var catImage = cats[catName].image;
+
+		catListItem.addEventListener("click", (function(catNameCopy, catCounterCopy, catImageCopy){
+			return function(){
+				//clear the displayArea
+				displayArea.innerHTML = '';
+
+				var nameElem = document.createElement('p');
+				nameElem.id = "catName";
+			    nameElem.textContent = catNameCopy;
+			    displayArea.appendChild(nameElem);
+
+			    var counterElem = document.createElement('p');
+			    counterElem.id = "counter";
+			    counterElem.textContent = "Current Clicks: " + catCounterCopy;
+			    displayArea.appendChild(counterElem);
+
+			    var imageElem = document.createElement('img');
+			    imageElem.id = "catImage";
+			    imageElem.src = catImageCopy;
+			    imageElem.style.width = '400px';
+			    imageElem.style.height = '400px';
+			    displayArea.appendChild(imageElem);
+
+			    var currentImage = document.getElementById('catImage');
+			    var currentCounterElement = document.getElementById('counter');
+			    currentImage.addEventListener('click', function() {
+			    	catCounterCopy++;
+			    	currentCounterElement.innerHTML = "Current Clicks: " + catCounterCopy;
+			    });
+
+			}
+		})(catName, catCounter, catImage));
+
+	}
+
+</script>
+</body>
+</html>
