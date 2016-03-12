@@ -189,18 +189,17 @@ $(function () {
 					this.oldName = $('#displayCatName').text();
 
 					octopus.updateCat(this.name, Number(this.counter), this. image, this.oldName);
-
 					view.init();
+					this.catNamesListItems = $('.catName');
 
-					this.displayCatName = $('#displayCatName');
-					this.displayCatCounter = $('#displayCatCounter');
-					this.displayCatImage = $('#displayCatImage');
+					this.catNamesListItems.each(function(){
+						if ( $(this).text() == $('#name').val() ) {
+							$(this).click();
+						}
+					});
 
-					this.displayCatName.text(this.name);
-					this.displayCatCounter.text("Current Clicks: " + Number(this.counter));
-					this.displayCatImage.attr('src', this.image);
-					this.formArea = $('#formArea');
-					this.formArea.html('');
+					// this.formArea = $('#formArea');
+					// this.formArea.html('');
 					e.preventDefault();
 				});
 
